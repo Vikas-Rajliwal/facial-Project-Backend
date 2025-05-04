@@ -9,7 +9,7 @@ app = FastAPI()
 # CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173","https://facial-recommend-fronted.vercel.app/"],
+    allow_origins=["https://facial-recommend-fronted.vercel.app/"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
