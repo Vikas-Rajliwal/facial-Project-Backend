@@ -14,10 +14,9 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-@app.get('/')
-async def hello():
-    call = "hello from  python server"
-    return call
+@app.get("/")
+def read_root():
+    return {"message": "FastAPI app is running!"}
 @app.post("/predict/")
 async def predict_emotion(file: UploadFile = File(...)):
     contents = await file.read()
