@@ -3,7 +3,9 @@ import numpy as np
 from joblib import load
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
-
+from dotenv import load_dotenv
+import os
+load_dotenv()
 # ---------- Load .npz data ----------
 def load_npz_data(path):
     data = np.load(path)
@@ -32,8 +34,8 @@ EMOTIONS = {
 
 # ---------- Spotify API setup ----------
 sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(
-    client_id=process.env.client_id,
-    client_secret="process.env.client_secret"
+    client_id=os.getenv("client_id"),
+    client_secret=os.getenv("client_secret")
 ))
 
 # Global variable to store the model
