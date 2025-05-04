@@ -2,7 +2,6 @@ click==8.1.8
 colorama==0.4.6
 h11==0.16.0
 pytz==2025.2
-pywin32==310
 setuptools==80.3.0
 uvicorn==0.34.2
 wheel==0.45.1
