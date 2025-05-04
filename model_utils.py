@@ -32,8 +32,8 @@ EMOTIONS = {
 
 # ---------- Spotify API setup ----------
 sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(
-    client_id="4544b915381b425e84dd963824ea5978",
-    client_secret="911e485e7d7c47c1b08d50d65ffd5abf"
+    client_id=process.env.client_id,
+    client_secret="process.env.client_secret"
 ))
 
 # Global variable to store the model
