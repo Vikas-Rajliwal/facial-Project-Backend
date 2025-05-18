@@ -19,7 +19,7 @@ emotion_to_genre = {
     2: 'B praak',    # Fear
     3: 'haryanvi',      # Happy
     4: 'karan aujla',      # Neutral
-    5: 'sad songs',   # Sad
+    5: 'Arijit Singh ',   # Sad
     6: 'punjabi'       # Surprise
 }
 
@@ -73,7 +73,7 @@ def predict_emotion_and_song(img):
     mood = EMOTIONS[label]
     genre = emotion_to_genre[label]
 
-    results = sp.search(q=f'artist:{genre} songs', type='track', limit=10)
+    results = sp.search(q=f'artist:{genre} ', type='track', limit=10)
     if results['tracks']['items']:
         song = random.choice(results['tracks']['items']) 
         return mood, {
