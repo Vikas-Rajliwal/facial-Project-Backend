@@ -5,6 +5,7 @@ import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
 from dotenv import load_dotenv
 import os
+import random
 load_dotenv()
 # ---------- Load .npz data ----------
 def load_npz_data(path):
@@ -72,13 +73,13 @@ def predict_emotion_and_song(img):
     mood = EMOTIONS[label]
     genre = emotion_to_genre[label]
 
-    results = sp.search(q=f'genre:{genre} songs panjabi ', type='track', limit=1)
+    results = sp.search(q=f'artist:{genre} songs', type='track', limit=5)
     if results['tracks']['items']:
-        song = results['tracks']['items'][0]
+        song = random.choice(results['tracks']['items']) 
         return mood, {
             "name": song["name"],
             "artist": song["artists"][0]["name"],
-            "url": f"https://open.spotify.com/track/{song['id']}"
+           "url": song["external_urls"]["spotify"]
         }
 
     return mood, None
