@@ -13,13 +13,13 @@ def load_npz_data(path):
 
 # ---------- Emotion mappings ----------
 emotion_to_genre = {
-    0: 'rock',       # Angry
-    1: 'classical',  # Disgust
-    2: 'ambient',    # Fear
-    3: 'happy',      # Happy
-    4: 'chill',      # Neutral
-    5: 'acoustic',   # Sad
-    6: 'party'       # Surprise
+    0: 'sighu moose wala',       # Angry
+    1: 'karan aujla',  # Disgust
+    2: 'B praak',    # Fear
+    3: 'haryanvi',      # Happy
+    4: 'ammy virk',      # Neutral
+    5: 'jhol',   # Sad
+    6: 'punjabi'       # Surprise
 }
 
 EMOTIONS = {
@@ -72,7 +72,7 @@ def predict_emotion_and_song(img):
     mood = EMOTIONS[label]
     genre = emotion_to_genre[label]
 
-    results = sp.search(q=f'genre:{genre}', type='track', limit=1)
+    results = sp.search(q=f'genre:{genre} songs panjabi ', type='track', limit=1)
     if results['tracks']['items']:
         song = results['tracks']['items'][0]
         return mood, {
